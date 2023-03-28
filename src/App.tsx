@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
-import Posts from './components/Profile/MyPosts/Posts';
+import Posts from './components/Profile/MyPosts/MyPosts';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings/Settings';
 

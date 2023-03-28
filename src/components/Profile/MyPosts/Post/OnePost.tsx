@@ -5,10 +5,8 @@ import s from './OnePost.module.css'
 const OnePost = (props: { message: string}) => {
   return (
       <div className={s.item}>
-        <div>
           <img src ="https://bitprice.ru/sites/default/files/styles/mt_photo/public/img/logo/brands/447105.png?itok=uchLL3-4"/>
-        </div>
-        {props.message}
+          {props.message}
         <div>
           <span>like</span>
         </div>

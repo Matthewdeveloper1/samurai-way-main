@@ -1,21 +1,24 @@
  import React from "react"; 
+import MyPosts from "./MyPosts/MyPosts";
+import OnePost from "./MyPosts/Post/OnePost";
 import Posts from "./MyPosts/Post/OnePost";
  import p from './Profile.module.css'
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
  const Profile = () => {
+
+  const postsData = [
+    {id: 1, message: 'Hi, how are you?'},
+    {id: 2, message: 'Sup, fine '}
+  ]
+
   return(
     <div className={p.content}>
-        <div>
-          <img src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' />
-        </div>
-        <div>
-          Ava + description
-        </div>
-          <textarea></textarea>
-          <button>Add post</button>
-        <Posts message = 'Hi, how are you' />
-        <Posts message = 'Its my first post'/>
+      <ProfileInfo/>
+      <MyPosts/>
+      <Posts message={postsData[0].message} />
+      <Posts message={postsData[1].message} />
     </div>
   )
  }

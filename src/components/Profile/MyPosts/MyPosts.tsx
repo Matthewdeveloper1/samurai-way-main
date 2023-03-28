@@ -1,18 +1,22 @@
 import React from "react";
 import OnePost from "./Post/OnePost";
-import p from './Posts.module.css'
+import p from './MyPosts.module.css'
 
 
-const Posts = () => {
+const MyPosts = () => {
   return (
-    <div>
+    <div className = {p.postsBlock}>
       My posts
       <div>
+        <div>
         <textarea></textarea>
+        </div>
+        <div>
         <button>Add post</button>
+        </div>
       </div>
     </div>
   )
 }
 
-export default Posts;
+export default MyPosts;
