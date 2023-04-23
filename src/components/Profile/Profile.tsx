@@ -11,7 +11,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
       <ProfileInfo/>
       <MyPosts
       posts = {props.state.posts}
-      addPost ={props.addPost}
+      dispatch ={props.dispatch}
       />
     </div>
   )

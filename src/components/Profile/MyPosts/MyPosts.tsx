@@ -19,7 +19,7 @@ const MyPosts = (props: any) => {
   
   const addPost = () => {
     if (newPostElement.current !== null) {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST', message: newPostElement.current.value});
     }
 }
   return (

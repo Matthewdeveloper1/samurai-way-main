@@ -9,10 +9,18 @@ import News from './components/News/News';
 import Posts from './components/Profile/MyPosts/MyPosts';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings/Settings';
+import { ActionType, AddPostType, AppStateType } from './redux/state';
 
 
-const App = (props: any) => {
+type AppProps ={
+  state: AppStateType
+  dispatch: (action: ActionType) => void
+}
 
+
+const App = (props: AppProps) => {
+
+  const { state, dispatch } = props
 
   return (
       <div className='app-wrapper'>
@@ -21,11 +29,11 @@ const App = (props: any) => {
         <div className='app-wrapper-content'>
 
           <Route path='/dialogs' render={() => <Dialogs
-            state={props.state.messagesPage}/>} />
+            state={state.messagesPage}/>} />
 
           <Route path='/profile' render={() => <Profile
-            state={props.state.profilePage}
-            addPost= {props.addPost}
+            state={state.profilePage}
+            dispatch= {dispatch}
             />} /> 
             
           <Route path='/news'
