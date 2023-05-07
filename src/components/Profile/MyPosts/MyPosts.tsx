@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import OnePost from "./Post/OnePost";
 import p from './MyPosts.module.css'
 import Posts from "./Post/OnePost";
+
 
 
 const MyPosts = (props: any) => {

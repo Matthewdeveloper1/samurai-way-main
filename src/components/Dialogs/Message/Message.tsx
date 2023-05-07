@@ -16,8 +16,6 @@ const Message = (props: any) =>{
   return (
   <div className={s.message}>
      <div>{props.message}</div>
-     <textarea ref={newMessageElement}></textarea>
-     <button onClick={addPost}>Sent</button>
   </div>
 )
 }

@@ -1,13 +1,21 @@
-
-
+import messagesReducer from "./messages-reducer"
+import propfileReducer from "./profile-reducer"
+import sidebarReducer from "./sidebar-reducer"
 
 export type AddPostActionType = {
-  type: 'ADD-POST'
+  type: 'ADD-POST' 
   message: string
 }
 
+export type MessageAT = {
+  type: 'UPDATE_NEW_MESSAGE_BODY' | 'SEND_MESSAGE'
+  message: string
+}
+
+
+
 export type ActionType = AddPostActionType
-type NewPostType = {
+export type NewPostType = {
   id: number
   message: string
   likesCount: number
@@ -38,28 +46,11 @@ let store = {
         { id: 6, name: 'Asya' },
         { id: 7, name: 'Valera' },
         { id: 8, name: 'Sveta' },
-      ]
-    }
-
+      ],
+      newMessageBody: ''
+    },
+    sidebar: {}
   },
-
-  rerenderEntireTree() {
-    console.log('')
-  },
-
-  dispatch(action: ActionType){
-    if(action.type === "ADD-POST"){
-      const newPost: NewPostType= {
-        id: 5,
-        message: action.message,
-        likesCount: 0
-      }
-      this._state.profilePage.posts.push(newPost)
-      this.rerenderEntireTree()
-    }
-  },
-
-
 
   subscribe(observer: () => void) {
     this.rerenderEntireTree = observer
@@ -69,8 +60,26 @@ let store = {
     return this._state
   },
 
+
+  rerenderEntireTree() {
+    console.log('')
+  },
+
+  dispatch(action: any){
+
+    this._state.profilePage = propfileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
+      this.rerenderEntireTree()
   
+   
+  }, 
+  
+ 
+
 }
+
 
 export type AppStateType = typeof store._state
 export type AddPostType = (message: string) => void
